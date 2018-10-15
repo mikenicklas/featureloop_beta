@@ -1,0 +1,6 @@
+h1 Start tracking feature requests for your app
+
+= bootstrap_form_for @product do |f|
+  = f.text_field :name, label: "Product name", placeholder: "ex. Google"
+  = f.text_field :subdomain, label: "Subdomain", placeholder: "ex. google", help: "This is how you and your customers will access your feature requests. Ex. https://google.featureloop.com"
+  = f.submit "Start tracking feature requests!", class: "btn btn-primary"

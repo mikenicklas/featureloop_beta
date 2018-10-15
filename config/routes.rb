@@ -1,4 +1,16 @@
+class SubdomainConstraint   
+  def self.matches?(request)
+    request.subdomain.present? && !Apartment::Elevators::Subdomain.excluded_subdomains.include?(request.subdomain)   
+  end 
+end 
+
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  constraints SubdomainConstraint do     
+    root "features#index"
+  end
+
+  root "dashboard#index"
+  resources :products, only: [:new, :create, :show]
 end
