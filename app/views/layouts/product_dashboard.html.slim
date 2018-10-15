@@ -22,6 +22,8 @@ html
             li = link_to "Sign out", destroy_user_session_path, method: :delete
           - else
             li = link_to "Sign in", new_user_session_path
-            li = link_to "Register", new_user_registration_path
+            li 
+              p.navbar-btn
+                = link_to "Register", new_user_registration_path, class: "button--alt button--small"
   .container
     = yield
