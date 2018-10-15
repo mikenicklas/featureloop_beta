@@ -14,9 +14,86 @@
  *= require_self
  */
 
+$purple: #560CA1;
+$green: #0CA124;
+$blue: #186ED6;
+
+$brand-primary: $blue;
+$border-radius-base: 3px;
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+@mixin hover-state {
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    @content;
+  }
+}
+
+
 body {
   padding-top: 80px;
+  background-color: #F8F8FA;
+}
+
+.navbar-default {
+  background-color: #FFF;
+}
+
+.button--primary {
+  @extend .btn;
+  @extend .btn-primary;
+  border: 0;
+
+  @include hover-state {
+    border: 0;
+  }
+}
+
+.button--alt {
+  @extend .btn;
+  background-color: transparent;
+  border: 1.5px solid $purple;
+  color: $purple;
+  
+  @include hover-state {
+    background-color: lighten($purple, 60%);
+    color: $purple;
+  }
+}
+
+.button--small { @extend .btn-sm }
+
+.card--white {
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  padding: 24px;
+
+  &.card--feature {
+    margin: 0 auto 12px auto;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .card-feature-summary {
+      width: 80%;
+    }
+
+    .score-circle {
+      height: 40px;
+      width: 40px;
+      border: 1.5px solid $green;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 40px;
+      color: $green;
+      float: right;
+    }
+  }
 }

@@ -1,0 +1,8 @@
+.row
+  .col-md-8.col-md-offset-2
+    h1 Suggest a new feature
+    
+    = bootstrap_form_for @feature do |f|
+      = f.text_field :title
+      = f.text_area :description
+      = f.submit "Submit", class: "button--primary"
