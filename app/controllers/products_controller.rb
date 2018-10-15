@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to product_path(@product)
+      Apartment::Tenant.switch!(@product.subdomain)
+      redirect_to subdomain: @product.subdomain, controller: 'products', action: "show"
     else
       flash[:error] = "Your app could not be added. Please try again or contact support@featureloop.com for assistance."
       render :new

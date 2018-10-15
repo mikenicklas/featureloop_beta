@@ -1,5 +1,5 @@
 class SubdomainConstraint   
-  def self.matches?(request)     
+  def self.matches?(request)
     request.subdomain.present? && !Apartment::Elevators::Subdomain.excluded_subdomains.include?(request.subdomain)   
   end 
 end 
