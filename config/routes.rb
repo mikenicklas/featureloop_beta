@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   constraints SubdomainConstraint do     
-    root "products#show"
+    root "features#index"
   end
 
   root "dashboard#index"
