@@ -16,10 +16,12 @@ gem 'slim-rails'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'apartment'
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
