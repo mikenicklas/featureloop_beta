@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = find_product_by_subdomain_or_id
+    render :show, layout: "product_dashboard"
   end
 
   private
