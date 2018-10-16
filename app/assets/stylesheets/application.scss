@@ -19,6 +19,8 @@ $purple: #560CA1;
 $green: #0CA124;
 $blue: #186ED6;
 $red: #851616;
+$dark: #333;
+$white: #FFF;
 
 $brand-primary: $blue;
 $border-radius-base: 3px;
@@ -87,6 +89,17 @@ body {
     margin: 0;
     flex-grow: 1;
   }
+}
+
+.card--dark {
+  @extend .card--white;
+  background-color: $dark !important;
+  color: $white;
+}
+
+.card--med-dark {
+  @extend .card--dark;
+  background-color: #444 !important;
 }
 
 .card--white {
