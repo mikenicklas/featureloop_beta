@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require material_icons
  *= require_tree .
  *= require_self
  */
@@ -17,6 +18,7 @@
 $purple: #560CA1;
 $green: #0CA124;
 $blue: #186ED6;
+$red: #851616;
 
 $brand-primary: $blue;
 $border-radius-base: 3px;
@@ -84,16 +86,30 @@ body {
     .card-feature-summary {
       width: 80%;
     }
+    
+    .card-feature-right {
+      width: 60px;
 
-    .score-circle {
-      height: 40px;
-      width: 40px;
-      border: 1.5px solid $green;
-      line-height: 40px;
-      text-align: center;
-      border-radius: 40px;
-      color: $green;
-      float: right;
+      .score-circle {
+        height: 40px;
+        width: 40px;
+        border: 1.5px solid $green;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 40px;
+        color: $green;
+        float: left;
+      }
+
+      .card-feature-upvote {
+        width: 10px;
+        float: right;
+        height: 40px;
+      }
     }
   }
+}
+
+.action--taken {
+  color: $red;
 }

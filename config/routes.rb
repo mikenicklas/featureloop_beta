@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   constraints SubdomainConstraint do     
     root "features#index"
-    resources :features, only: [:new, :create, :show]
+    resources :features, only: [:new, :create, :show] do
+      resources :upvotes, only: [:create, :destroy]
+    end
   end
 
   root "dashboard#index"
