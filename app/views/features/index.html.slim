@@ -10,9 +10,8 @@
       = link_to feature_path(feature) do
         h4.u-mt--0 = feature.title
       p.u-mb--0 = feature.description.truncate(100)
-    .card-feature-right
-      .card-feature-score
-        .score-circle = feature.score
-      .card-feature-upvote
-        = link_to feature_upvotes_path(feature_id: feature.id, return_url: request.url), class: "upvote", method: :post do
-          i.material-icons = "#{current_user&.upvotes&.where(feature_id: feature.id)&.present? ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}"
+    .card-feature-score
+      .score-circle = feature.score
+    .card-feature-upvote
+      = link_to feature_upvotes_path(feature_id: feature.id, return_url: request.url), class: "upvote", method: :post do
+        i.material-icons = "#{current_user&.upvotes&.where(feature_id: feature.id)&.present? ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}"
