@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
 gem 'apartment'
 gem 'bootstrap_form'
 gem 'pry-rails'
+gem 'material_icons'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
