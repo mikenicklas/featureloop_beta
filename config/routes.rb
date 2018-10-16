@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root "features#index"
     resources :features, only: [:new, :create, :show] do
       resources :upvotes, only: [:create, :destroy]
+      resources :comments, only: [:create]
     end
   end
 

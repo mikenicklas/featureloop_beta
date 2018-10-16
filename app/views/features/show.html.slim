@@ -4,3 +4,25 @@
     p.lead = "Submitted on #{@feature.created_at}"
     p = @feature.status.titleize
     p = @feature.description
+
+.clearfix
+
+.row.u-mt--3
+  .col-md-8.col-md-offset-2.card--dark
+    h4 = "Comments (#{@feature.comments.size})"
+    - if @feature.comments.blank?
+      em There are no comments yet.
+    - else
+      - @feature.comments.each do |comment|
+        .u-mt--2.card--med-dark
+          .col-xs-12
+            = comment.content
+          .col-xs-12.pull-right
+            = "Submitted by #{comment.user.email}"
+          .clearfix
+    hr
+
+    h4 Leave a comment
+    = bootstrap_form_for @feature.comments.new, url: feature_comments_path(feature_id: @feature.id) do |f|
+      = f.text_area :content, hide_label: true
+      = f.submit "Save comment", class: "button--primary"
