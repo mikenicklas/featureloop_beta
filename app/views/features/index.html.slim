@@ -1,8 +1,6 @@
-.row.u-mb--2
-  .col-md-6.col-md-offset-2
-    h1 Most Popular
-  .col-md-2.text-right
-    = link_to "Suggest a feature", new_feature_path, class: "button--primary"
+.flex-header.u-mb--4.u-mt--2
+  h1.header Most Popular
+  = link_to "Suggest a feature", new_feature_path, class: "button--primary"
 
 - @features.each do |feature|
   .card--white.card--feature

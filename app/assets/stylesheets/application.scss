@@ -76,6 +76,19 @@ body {
 
 .button--small { @extend .btn-sm }
 
+.flex-header {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+
+  .header {
+    margin: 0;
+    flex-grow: 1;
+  }
+}
+
 .card--white {
   background-color: #FFF;
   border-radius: 3px;
