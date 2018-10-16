@@ -22,6 +22,7 @@ $red: #851616;
 
 $brand-primary: $blue;
 $border-radius-base: 3px;
+$font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -48,11 +49,17 @@ body {
 .button--primary {
   @extend .btn;
   @extend .btn-primary;
+
   border: 0;
+  padding: 8px 24px;
 
   @include hover-state {
     border: 0;
   }
+}
+
+.button--block {
+  @extend .btn-block;
 }
 
 .button--alt {
