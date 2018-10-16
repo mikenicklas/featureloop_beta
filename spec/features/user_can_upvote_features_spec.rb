@@ -17,7 +17,7 @@ RSpec.feature "user can upvote features", type: :feature do
     click_on "Sign in"
     fill_in "user[email]", with: upvoter.email
     fill_in "user[password]", with: "testing123"
-    click_on "Log in"
+    within(".actions") { click_on "Sign in" }
     expect(page).to have_content "Most Popular"
     within(".card--feature") do
       find(".upvote").click

@@ -14,7 +14,7 @@ RSpec.feature "user can submit a feature request", type: :feature do
     click_on "Sign in"
     fill_in "user[email]", with: subuser.email
     fill_in "user[password]", with: "testing123"
-    click_on "Log in"
+    within(".actions") { click_on "Sign in" }
     click_on "Suggest a feature"
     fill_in "feature[title]", with: "Add geolocation for mapping"
     fill_in "feature[description]", with: "Its really hard to find yourself on the map so gelocation would make it easier"
