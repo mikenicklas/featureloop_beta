@@ -1,0 +1,12 @@
+.row
+  .col-md-4.col-md-offset-4.card--white
+    h2.text-center.u-mb--2
+      | Sign in
+    = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.email_field :email, autofocus: true, autocompolete: "email"
+      = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        = f.check_box :remember_me
+      .actions.u-mt--2
+        = f.submit "Sign in", class: "button--primary button--block"
+    = render "devise/shared/links"
