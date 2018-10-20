@@ -15,7 +15,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'apartment'
 gem 'bootstrap_form'
 gem 'pry-rails'
 gem 'material_icons'

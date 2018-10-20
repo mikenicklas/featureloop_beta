@@ -3,7 +3,7 @@
   = link_to "Suggest a feature", new_feature_path, class: "button--primary"
 
 - @features.each do |feature|
-  .card--white.card--feature
+  .card.card--feature
     .card-feature-summary
       = link_to feature_path(feature) do
         h4.u-mt--0 = feature.title

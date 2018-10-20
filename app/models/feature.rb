@@ -1,5 +1,6 @@
 class Feature < ApplicationRecord
   belongs_to :user
+  belongs_to :product
 
   has_many :upvotes
   has_many :comments

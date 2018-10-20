@@ -5,7 +5,7 @@ class UpvotesController < ApplicationController
     if existing_upvote
       existing_upvote.destroy
     else
-      @upvote = current_user.upvotes.create(feature_id: params[:feature_id])
+      @upvote = current_user.upvotes.create(scope_to_product(feature_id: params[:feature_id]))
     end
     redirect_to params[:return_url]
   end

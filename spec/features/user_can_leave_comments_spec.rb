@@ -2,19 +2,18 @@ require 'rails_helper'
 
 RSpec.feature "UserCanLeaveComments", type: :feature do
   let(:product) { create(:product) }
-  let(:feature_owner) { create(:user) }
-  let(:feature) { create(:feature, user: feature_owner) }
-  let(:commenter) { create(:user) }
+  let(:feature_owner) { create(:user, product: product) }
+  let(:feature) { create(:feature, user: feature_owner, product: product) }
+  let(:commenter) { create(:user, product: product) }
 
   before do
-    Apartment::Tenant.switch! product.subdomain
     feature
     commenter
   end
   
   it "lets user upvote" do
     visit root_url(subdomain: product.subdomain)
-    click_on "Sign in"
+    within(".navbar") { click_on "Sign in" }
     fill_in "user[email]", with: commenter.email
     fill_in "user[password]", with: "testing123"
     within(".actions") { click_on "Sign in" }

@@ -7,7 +7,6 @@ RSpec.feature "user can upvote features", type: :feature do
   let(:upvoter) { create(:user) }
 
   before do
-    Apartment::Tenant.switch! product.subdomain
     feature
     upvoter
   end

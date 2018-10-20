@@ -34,7 +34,7 @@ class FeaturesController < ApplicationController
   end
 
   def feature_params
-    params.require(:feature).permit(:title, :description)
+    scope_to_product(params.require(:feature).permit(:title, :description))
   end
 
 end
