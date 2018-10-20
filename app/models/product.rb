@@ -1,15 +1,13 @@
 class Product < ApplicationRecord
-  belongs_to :user
+  has_many :users
 
   validates :name, presence: true
   validates :subdomain, uniqueness: { case_sensitive: false }, presence: true
 
-  after_create :create_tenant
-
-  private
-
-  def create_tenant
-    Apartment::Tenant.create(subdomain)
+  def self.current(subdomain)
+    return unless subdomain
+    return if ExcludedSubdomains.include? subdomain
+    find_by_subdomain(subdomain)
   end
-  
+
 end

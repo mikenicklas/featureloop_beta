@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :product do
     name "Google"
-    subdomain "google"
-    
-    user
+    sequence :subdomain do |n|
+      "prdouct#{n}"
+    end
   end
 end

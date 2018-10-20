@@ -5,6 +5,7 @@ class CreateFeatures < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.integer :status, default: 0
+      t.integer :product_id, null: false
 
       t.timestamps
     end

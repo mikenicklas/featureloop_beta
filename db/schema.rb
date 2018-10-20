@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_231540) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "feature_id"
+    t.integer "product_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,12 +29,12 @@ ActiveRecord::Schema.define(version: 2018_10_16_231540) do
     t.string "title"
     t.text "description"
     t.integer "status", default: 0
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.string "subdomain"
     t.datetime "created_at", null: false
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_231540) do
   create_table "upvotes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "feature_id"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_231540) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "product_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

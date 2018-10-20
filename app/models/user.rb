@@ -4,9 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :products
+  belongs_to :product, optional: true
   has_many :features
   has_many :upvotes
   has_many :comments
-  
+
+  def owns_product?
+    return false unless product_id
+    !!Product.find(product_id)
+  end
 end

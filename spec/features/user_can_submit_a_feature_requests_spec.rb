@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "user can submit a feature request", type: :feature do
-  let(:owner) { create(:user) }
-  let!(:product) { create(:product, user: owner) }
-  let(:subuser) { create(:user) }
+  let(:product) { create(:product) }
+  let(:owner) { create(:user, product: product) }
+  let(:subuser) { create(:user, product: product) }
 
   before do
-    Apartment::Tenant.switch! product.subdomain
   end
 
   it "creates feature request for product" do
