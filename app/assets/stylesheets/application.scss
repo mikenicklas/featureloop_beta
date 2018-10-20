@@ -28,6 +28,7 @@ $font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'utility';
 
 @mixin hover-state {
   &:hover,
@@ -91,22 +92,40 @@ body {
   }
 }
 
-.card--dark {
-  @extend .card--white;
-  background-color: $dark !important;
-  color: $white;
-}
-
-.card--med-dark {
-  @extend .card--dark;
-  background-color: #444 !important;
-}
-
-.card--white {
+.card {
   background-color: #FFF;
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-  padding: 24px;
+  padding: 24px !important;
+
+  &.card--narrow-centered {
+    @extend .col-md-4;
+    @extend .col-md-offset-4;
+  }
+
+  &.card--md {
+    @extend .col-md-6;
+    @extend .col-md-offset-3;
+  }
+
+  &.card--dark {
+    background-color: $dark !important;
+    color: $white;
+  }
+
+  .card--med-dark {
+    background-color: #444 !important;
+  }
+
+  .card__header {
+    margin-top: 0;
+
+    @extend .u-mb--2;
+
+    &.card__header--centered {
+      text-align: center;
+    }
+  }
 
   &.card--feature {
     margin: 0 auto 12px auto;
