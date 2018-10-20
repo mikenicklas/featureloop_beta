@@ -8,7 +8,6 @@ RSpec.feature "user can signup and create products", type: :feature do
     fill_in "user[email]", with: "testing@example.com"
     fill_in "user[password]", with: "testing123"
     fill_in "user[password_confirmation]", with: "testing123"
-    binding.pry
     click_on "Sign up"
     expect(page).to have_content "Start tracking feature requests for your app"
     fill_in "product[name]", with: "Google"
