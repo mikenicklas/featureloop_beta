@@ -5,7 +5,7 @@ class FeaturesController < ApplicationController
   layout "product_dashboard"
 
   def index
-    @features = Feature.all
+    @features = current_product.features
   end
 
   def new

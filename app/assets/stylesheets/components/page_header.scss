@@ -1,0 +1,23 @@
+@import 'base';
+
+.page-header {
+  @extend .u-mb--2;
+  @extend .u-mt--2;
+
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+
+  .page-header__heading {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .page-header__cta {
+    @extend .button--primary;
+  }
+}
