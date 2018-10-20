@@ -5,7 +5,7 @@ class FeaturesController < ApplicationController
   layout "product_dashboard"
 
   def index
-    @features = current_product.features
+    @features = current_product.features.includes(:upvotes)
   end
 
   def new
