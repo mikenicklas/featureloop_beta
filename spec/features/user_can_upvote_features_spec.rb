@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "user can upvote features", type: :feature do
   let(:product) { create(:product) }
-  let(:feature_owner) { create(:user) }
-  let(:feature) { create(:feature, user: feature_owner) }
-  let(:upvoter) { create(:user) }
+  let(:feature_owner) { create(:user, product: product) }
+  let(:feature) { create(:feature, user: feature_owner, product: product) }
+  let(:upvoter) { create(:user, product: product) }
 
   before do
     feature
