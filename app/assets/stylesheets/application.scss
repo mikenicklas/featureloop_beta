@@ -15,30 +15,9 @@
  *= require_self
  */
 
-$purple: #560CA1;
-$green: #0CA124;
-$blue: #186ED6;
-$red: #851616;
-$dark: #333;
-$white: #FFF;
 
-$brand-primary: $blue;
-$border-radius-base: 3px;
-$font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
-
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'utility';
-
-@mixin hover-state {
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    @content;
-  }
-}
-
+@import 'base';
+@import 'modules/cards';
 
 body {
   padding-top: 80px;
@@ -89,72 +68,6 @@ body {
   .header {
     margin: 0;
     flex-grow: 1;
-  }
-}
-
-.card {
-  background-color: #FFF;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-  padding: 24px !important;
-
-  &.card--narrow-centered {
-    @extend .col-md-4;
-    @extend .col-md-offset-4;
-  }
-
-  &.card--md {
-    @extend .col-md-6;
-    @extend .col-md-offset-3;
-  }
-
-  &.card--dark {
-    background-color: $dark !important;
-    color: $white;
-  }
-
-  .card--med-dark {
-    background-color: #444 !important;
-  }
-
-  .card__header {
-    margin-top: 0;
-
-    @extend .u-mb--2;
-
-    &.card__header--centered {
-      text-align: center;
-    }
-  }
-
-  &.card--feature {
-    margin: 0 auto 12px auto;
-    max-width: 800px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-
-    .card-feature-summary {
-      margin-right: 24px;
-      flex-grow: 1;
-    }
-    
-    .score-circle {
-      height: 40px;
-      width: 40px;
-      border: 1.5px solid #5e635e;
-      line-height: 39px;
-      text-align: center;
-      border-radius: 40px;
-      color: #5e635e;
-      margin-right: 12px;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .card-feature-upvote {
-      width: 10px;
-    }
   }
 }
 

@@ -1,0 +1,23 @@
+$purple: #560CA1;
+$green: #0CA124;
+$blue: #186ED6;
+$red: #851616;
+$dark: #333;
+$white: #FFF;
+
+$brand-primary: $blue;
+$border-radius-base: 3px;
+$font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'utility';
+
+@mixin hover-state {
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    @content;
+  }
+}
