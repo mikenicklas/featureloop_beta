@@ -1,6 +1,6 @@
 class SubdomainConstraint   
   def self.matches?(request)
-    request.subdomain.present? && !ExcludedSubdomains.include?(request.subdomain)
+    request.subdomain.present? && !ExcludedSubdomains.include?(request.subdomains.first)
   end 
 end
 

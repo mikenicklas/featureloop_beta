@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def find_product_by_subdomain_or_id
-    if tenant = Product.current(request.subdomain)
+    if tenant = Product.current(request.subdomains.first)
       Product.find_by_subdomain(tenant)
     else
       Product.find(params[:id])

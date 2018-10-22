@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_product, :current_product_name
 
   def current_product
-    @_current_product ||= Product.current(request.subdomain)
+    @_current_product ||= Product.current(request.subdomains.first)
   end
 
   def current_product_name
