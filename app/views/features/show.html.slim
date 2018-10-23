@@ -1,8 +1,8 @@
 .row
   .col-md-8.col-md-offset-2.card
     h1 = @feature.title
-    p.lead = "Submitted on #{@feature.created_at}"
-    p = @feature.status.titleize
+    p = "Submitted on #{@feature.created_at}"
+    p class="feature-status feature-status--#{@feature.status.downcase}" = @feature.status.titleize
     p = @feature.description
 
 .clearfix
