@@ -24,7 +24,7 @@ class FeaturesController < ApplicationController
   end
 
   def show
-    @feature = Feature.find(params[:id])
+    @feature = current_product.features.find(params[:id])
   end
 
   private
