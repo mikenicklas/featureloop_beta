@@ -1,8 +1,10 @@
 .row
   .col-md-8.col-md-offset-2
-    h1 Suggest a new feature
-    
-    = bootstrap_form_for @feature do |f|
-      = f.text_field :title
-      = f.text_area :description
-      = f.submit "Submit", class: "button--primary"
+    .card.card--padding-lg
+      h1.card__header.u-mb--0 New Feature Request
+      p Have an idea that would make #{current_product.name} better? Fill out the form below!
+      
+      = bootstrap_form_for @feature, html: { class: "new_feature u-mt--2" } do |f|
+        = f.text_field :title
+        = f.text_area :description, rows: 10
+        = f.submit "Submit", class: "button--primary"

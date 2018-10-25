@@ -1,9 +1,9 @@
 .row
   .col-md-8
-    .card
+    .card.card--padding-lg
       .row
         .col-xs-12
-          h1 = @feature.title
+          h1.card__header.u-mb--0 = @feature.title
           p = "Submitted on #{@feature.created_at}"
           p class="feature-status feature-status--#{@feature.status.downcase}" = @feature.status.titleize
           p = @feature.description
@@ -28,7 +28,7 @@
             = f.submit "Save comment", class: "button--primary"
   
   .col-md-4.text-center
-    .score-circle.score-circle--big.u-mlr--auto.u-mt--2.u-mb--2 = @feature.score
+    .score-circle.score-circle--big.u-mlr--auto.u-mt--4.u-mb--2 = @feature.score
     - if current_user&.upvotes&.where(feature_id: @feature.id)&.any?
       span.u-border--bottom.u-color--blue Thanks for supporting this feature!
     - else

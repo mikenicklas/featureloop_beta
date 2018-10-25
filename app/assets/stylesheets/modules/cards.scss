@@ -6,6 +6,10 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
   padding: 24px !important;
 
+  &.card--padding-lg {
+    padding: 48px !important;
+  }
+
   &.card--narrow-centered {
     @extend .col-md-4;
     @extend .col-md-offset-4;
@@ -31,8 +35,7 @@
 
   .card__header {
     margin-top: 0;
-
-    @extend .u-mb--2;
+    margin-bottom: 24px;
 
     &.card__header--centered {
       text-align: center;
