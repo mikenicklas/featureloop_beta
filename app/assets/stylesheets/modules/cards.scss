@@ -21,7 +21,7 @@
     color: $white;
   }
 
-  .card--med-dark {
+  &.card--med-dark {
     background-color: #444 !important;
   }
 
@@ -45,19 +45,6 @@
     .card-feature-summary {
       margin-right: 24px;
       flex-grow: 1;
-    }
-    
-    .score-circle {
-      height: 40px;
-      width: 40px;
-      border: 1.5px solid #5e635e;
-      line-height: 39px;
-      text-align: center;
-      border-radius: 40px;
-      color: #5e635e;
-      margin-right: 12px;
-      font-weight: 700;
-      font-size: 15px;
     }
 
     .card-feature-upvote {

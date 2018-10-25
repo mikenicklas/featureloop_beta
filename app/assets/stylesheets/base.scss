@@ -34,6 +34,11 @@ $font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
   }
 }
 
+.button--red {
+  @extend .button--primary;
+  background-color: $red;
+}
+
 .button--block {
   @extend .btn-block;
 }

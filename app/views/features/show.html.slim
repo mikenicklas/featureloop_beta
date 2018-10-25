@@ -1,28 +1,37 @@
 .row
-  .col-md-8.col-md-offset-2.card
-    h1 = @feature.title
-    p = "Submitted on #{@feature.created_at}"
-    p class="feature-status feature-status--#{@feature.status.downcase}" = @feature.status.titleize
-    p = @feature.description
+  .col-md-8
+    .card
+      .row
+        .col-xs-12
+          h1 = @feature.title
+          p = "Submitted on #{@feature.created_at}"
+          p class="feature-status feature-status--#{@feature.status.downcase}" = @feature.status.titleize
+          p = @feature.description
+      .row.u-mt--4
+        .col-xs-12
+          h4 = "Comments (#{@feature.comments.size})"
+          - if @feature.comments.blank?
+            em There are no comments yet.
+          - else
+            - @feature.comments.each do |comment|
+              .u-mt--2.card.card--med-dark
+                .col-xs-12
+                  = comment.content
+                .col-xs-12.pull-right
+                  = "Submitted by #{comment.user.email}"
+                .clearfix
+          hr
 
-.clearfix
-
-.row.u-mt--3
-  .col-md-8.col-md-offset-2.card.card--dark
-    h4 = "Comments (#{@feature.comments.size})"
-    - if @feature.comments.blank?
-      em There are no comments yet.
-    - else
-      - @feature.comments.each do |comment|
-        .u-mt--2.card.card--med-dark
-          .col-xs-12
-            = comment.content
-          .col-xs-12.pull-right
-            = "Submitted by #{comment.user.email}"
-          .clearfix
-    hr
-
-    h4 Leave a comment
-    = bootstrap_form_for @feature.comments.new, url: feature_comments_path(feature_id: @feature.id) do |f|
-      = f.text_area :content, hide_label: true
-      = f.submit "Save comment", class: "button--primary"
+          h4 Leave a comment
+          = bootstrap_form_for @feature.comments.new, url: feature_comments_path(feature_id: @feature.id) do |f|
+            = f.text_area :content, hide_label: true
+            = f.submit "Save comment", class: "button--primary"
+  
+  .col-md-4
+    .card.card--dark.text-center
+      .score-circle.score-circle--white.score-circle--big.u-mlr--auto.u-mt--2.u-mb--2 = @feature.score
+      - if current_user&.upvotes&.where(feature_id: @feature.id)&.any?
+        span.u-border--bottom.u-color--blue Thanks for supporting this feature!
+      - else
+        = link_to "+ Support this feature", feature_upvotes_path(feature_id: @feature.id, return_url: request.url), method: :post, class: "button button--primary"
+      .u-mb--2
