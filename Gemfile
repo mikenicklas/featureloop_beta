@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'pry-rails'
 gem 'material_icons'
+gem 'webpacker', '~> 3.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
