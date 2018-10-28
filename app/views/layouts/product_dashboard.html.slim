@@ -20,7 +20,8 @@ html
       #navbar.collapse.navbar-collapse.pull-right
         ul.nav.navbar-nav
           - if current_user.present?
-            li = link_to "Sign out", destroy_user_session_path, method: :delete
+            li 
+              = link_to "Sign out (#{current_user.username || current_user.email})", destroy_user_session_path, method: :delete
           - else
             li = link_to "Sign in", new_user_session_path
             li 

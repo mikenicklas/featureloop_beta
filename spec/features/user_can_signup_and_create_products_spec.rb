@@ -6,6 +6,7 @@ RSpec.feature "user can signup and create products", type: :feature do
     visit root_path
     click_on "Register"
     fill_in "user[email]", with: "testing@example.com"
+    fill_in "user[username]", with: "awesome_user"
     fill_in "user[password]", with: "testing123"
     fill_in "user[password_confirmation]", with: "testing123"
     click_on "Sign up"
@@ -15,6 +16,7 @@ RSpec.feature "user can signup and create products", type: :feature do
     click_on "Start tracking feature requests!"
     expect(page).to have_content "Suggest a feature"
     expect(Product.find_by_subdomain("google")).to be_truthy
+    expect(User.find_by_username("awesome_user")).to be_truthy
   end
 
 end
